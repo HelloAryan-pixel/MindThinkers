@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BrainArena - Home</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#1e3c72,#2a5298);
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+
+.container{
+    width:100%;
+    max-width:1000px;
+    background:white;
+    border-radius:25px;
+    padding:40px;
+    text-align:center;
+    box-shadow:0 15px 40px rgba(0,0,0,0.3);
+}
+
+header{
+    background:linear-gradient(90deg,#ff6a00,#ee0979);
+    color:white;
+    padding:30px;
+    border-radius:20px;
+    margin-bottom:30px;
+}
+
+header h1{
+    font-size:3rem;
+}
+
+header p{
+    margin-top:10px;
+    font-size:1.2rem;
+}
+
+.about{
+    margin-bottom:30px;
+    color:#444;
+    line-height:1.7;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:#f8f9fa;
+    padding:25px;
+    border-radius:18px;
+    transition:0.3s;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+.card:hover{
+    transform:translateY(-10px);
+}
+
+.card h2{
+    margin-bottom:15px;
+}
+
+.card p{
+    margin-bottom:20px;
+    color:#666;
+}
+
+.btn{
+    display:inline-block;
+    text-decoration:none;
+    padding:12px 25px;
+    color:white;
+    border-radius:30px;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+.quiz{
+    background:#007bff;
+}
+
+.cricket{
+    background:#28a745;
+}
+
+.btn:hover{
+    opacity:0.85;
+}
+
+.stats{
+    margin-top:35px;
+    display:flex;
+    justify-content:space-around;
+    flex-wrap:wrap;
+    gap:15px;
+}
+
+.stat-box{
+    background:#eef3ff;
+    padding:15px;
+    border-radius:12px;
+    min-width:180px;
+}
+
+footer{
+    margin-top:35px;
+    color:#666;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<header>
+<h1>🏆 BrainArena</h1>
+<p>Learn • Play • Compete</p>
+</header>
+
+<div class="about">
+<h2>Welcome!</h2>
+<p>
+Hello Everyone!<br><br>
+We are Divit Agarwal, Vidit Agarwal and Aryan Shrivastava.
+Welcome to BrainArena, a place where you can test your knowledge,
+improve your skills and enjoy exciting quizzes.
+</p>
+</div>
+
+<div class="cards">
+
+<div class="card">
+<h2>🧠 Quiz Zone</h2>
+<p>
+Challenge yourself with fun and educational quizzes from various topics.
+</p>
+
+<a href="https://divit2402.github.io/BrainArena/Quiz_Main.html"
+class="btn quiz">
+Attempt Quizzes
+</a>
+
+</div>
+
+<div class="card">
+<h2>🏏 Cricket Arena</h2>
+<p>
+Explore cricket quizzes, facts, records and exciting challenges.
+</p>
+
+<a href="https://divit2402.github.io/BrainArena/Cricket.html"
+class="btn cricket">
+Go To Cricket
+</a>
+
+</div>
+
+</div>
+
+<div class="stats">
+<div class="stat-box">
+<h3>📚 Learning</h3>
+<p>Improve Knowledge</p>
+</div>
+
+<div class="stat-box">
+<h3>🎯 Challenges</h3>
+<p>Test Your Skills</p>
+</div>
+
+<div class="stat-box">
+<h3>🏆 Fun</h3>
+<p>Compete & Enjoy</p>
+</div>
+</div>
+
+<footer>
+<hr style="margin:20px 0;">
+<p>© 2026 BrainArena. All Rights Reserved.</p>
+</footer>
+
+</div>
+
+<script>
+window.onload = function(){
+    alert("Welcome to BrainArena!");
+}
+</script>
+
+</body>
+</html>
