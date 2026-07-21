@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MindThinkers Quiz Hub</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    min-height:100vh;
+    background:linear-gradient(135deg,#667eea,#764ba2);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+
+.container{
+    width:100%;
+    max-width:1000px;
+    background:white;
+    border-radius:25px;
+    padding:40px;
+    text-align:center;
+    box-shadow:0 15px 40px rgba(0,0,0,0.3);
+}
+
+header{
+    background:linear-gradient(90deg,#ff512f,#dd2476);
+    color:white;
+    padding:25px;
+    border-radius:20px;
+    margin-bottom:30px;
+}
+
+header h1{
+    font-size:3rem;
+}
+
+header p{
+    margin-top:10px;
+    font-size:1.1rem;
+}
+
+.quiz-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.quiz-card{
+    background:#f8f9fa;
+    padding:25px;
+    border-radius:20px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    transition:0.3s;
+}
+
+.quiz-card:hover{
+    transform:translateY(-10px);
+}
+
+.quiz-card h2{
+    margin-bottom:15px;
+}
+
+.quiz-card p{
+    color:#555;
+    margin-bottom:20px;
+}
+
+.btn{
+    display:inline-block;
+    text-decoration:none;
+    color:white;
+    padding:12px 25px;
+    border-radius:30px;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+.cricket{
+    background:#28a745;
+}
+
+.football{
+    background:#007bff;
+}
+
+.science{
+    background:#ff9800;
+}
+
+.btn:hover{
+    opacity:0.85;
+}
+
+.home-btn{
+    display:inline-block;
+    margin-top:30px;
+    background:#6c757d;
+    color:white;
+    text-decoration:none;
+    padding:12px 25px;
+    border-radius:30px;
+    font-weight:bold;
+}
+
+footer{
+    margin-top:30px;
+    color:#666;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<header>
+<h1>🧠 Quiz Hub</h1>
+<p>Choose a quiz and challenge yourself!</p>
+</header>
+
+<div class="quiz-grid">
+
+<div class="quiz-card">
+<h2>🏏 Cricket Quiz</h2>
+<p>Test your cricket knowledge with exciting questions.</p>
+<a href="https://helloaryan-pixel.github.io/MindThinkers/Cricket_Quiz.html"
+class="btn cricket">
+Start Quiz
+</a>
+</div>
+
+<div class="quiz-card">
+<h2>⚽ Football Quiz</h2>
+<p>Challenge yourself with football trivia and facts.</p>
+<a href="https://helloaryan-pixel.github.io/MindThinkers/Football_Quiz.html"
+class="btn football">
+Start Quiz
+</a>
+</div>
+
+<div class="quiz-card">
+<h2>🔬 Science Quiz</h2>
+<p>Explore the world of science and discover new facts.</p>
+<a href="https://helloaryan-pixel.github.io/MindThinkers/Science_Quiz.html"
+class="btn science">
+Start Quiz
+</a>
+</div>
+
+</div>
+
+<a href="https://helloaryan-pixel.github.io/MindThinkers/Home.html"
+class="home-btn">
+🏠 Back to Home
+</a>
+
+<footer>
+<hr style="margin:25px 0;">
+<p>© 2026 MindThinkers | Learn • Think • Grow</p>
+</footer>
+
+</div>
+
+</body>
+</html>
