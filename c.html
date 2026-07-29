@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Science Quiz</title>
+<style>
+body{margin:0;font-family:Arial;background:linear-gradient(135deg,#00c6ff,#0072ff);display:flex;justify-content:center;align-items:center;height:100vh}
+.box{background:#fff;padding:30px;border-radius:20px;width:320px;text-align:center;box-shadow:0 10px 30px rgba(0,0,0,.3)}
+h2{color:#0072ff}
+button{display:block;width:100%;margin:10px 0;padding:12px;border:none;border-radius:10px;background:#f0f4ff;cursor:pointer;font-size:16px}
+button:hover{background:#0072ff;color:#fff}
+#next{background:#0072ff;color:white}
+</style>
+</head>
+<body>
+<div class="box">
+<h2>🔬 Science Quiz</h2>
+<p id="q"></p>
+<div id="a"></div>
+<button id="next">Next</button>
+<p id="s"></p>
+</div>
+
+<script>
+let q=[
+["Red Planet?","Mars","Earth","Jupiter","Mars"],
+["Gas plants absorb?","Oxygen","Carbon Dioxide","Nitrogen","Carbon Dioxide"],
+["Boiling point of water?","100°C","50°C","150°C","100°C"]
+],i=0,score=0;
+
+function load(){
+qid=q[i];
+q.innerHTML=qid[0];
+a.innerHTML="";
+for(let j=1;j<4;j++)
+a.innerHTML+=`<button onclick="check(this)">${qid[j]}</button>`;
+}
+function check(b){
+if(b.innerHTML==q[i][4]) score++;
+[...a.children].forEach(x=>x.disabled=true);
+}
+next.onclick=()=>{
+i++;
+if(i<q.length) load();
+else document.querySelector(".box").innerHTML=
+`<h2>🎉 Finished!</h2><h1>${score}/${q.length}</h1>`;
+}
+load();
+</script>
+</body>
+</html>
