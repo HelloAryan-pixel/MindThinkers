@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Science Quiz Challenge</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#4facfe,#00f2fe);
+    overflow:hidden;
+}
+
+body::before{
+    content:'';
+    position:absolute;
+    width:400px;
+    height:400px;
+    background:rgba(255,255,255,0.15);
+    border-radius:50%;
+    top:-100px;
+    left:-100px;
+}
+
+body::after{
+    content:'';
+    position:absolute;
+    width:300px;
+    height:300px;
+    background:rgba(255,255,255,0.12);
+    border-radius:50%;
+    bottom:-80px;
+    right:-80px;
+}
+
+.quiz-container{
+    width:90%;
+    max-width:700px;
+    background:rgba(255,255,255,0.15);
+    backdrop-filter:blur(15px);
+    border:1px solid rgba(255,255,255,0.3);
+    border-radius:25px;
+    padding:30px;
+    color:white;
+    box-shadow:0 8px 32px rgba(0,0,0,0.2);
+    z-index:1;
+}
+
+h1{
+    text-align:center;
+    margin-bottom:20px;
+}
+
+.progress{
+    height:10px;
+    background:rgba(255,255,255,0.3);
+    border-radius:20px;
+    overflow:hidden;
+    margin-bottom:20px;
+}
+
+.progress-bar{
+    height:100%;
+    width:0%;
+    background:#00ff9d;
+    transition:0.4s;
+}
+
+.question{
+    font-size:1.4rem;
+    margin-bottom:20px;
+}
+
+.option{
+    background:rgba(255,255,255,0.2);
+    padding:15px;
+    margin:10px 0;
+    border-radius:12px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.option:hover{
+    background:white;
+    color:#333;
+    transform:translateX(5px);
+}
+
+.correct{
+    background:#28a745 !important;
+}
+
+.wrong{
+    background:#dc3545 !important;
+}
+
+#nextBtn{
+    margin-top:20px;
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:12px;
+    background:white;
+    color:#0077ff;
+    font-size:18px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+#nextBtn:hover{
+    background:#f0f0f0;
+}
+
+#score{
+    text-align:center;
+    font-size:1.8rem;
+}
+
+.footer{
+    text-align:center;
+    margin-top:15px;
+    opacity:0.8;
+}
+</style>
+</head>
+<body>
+
+<div class="quiz-container">
+    <h1>🔬 Science Quiz Challenge</h1>
+
+    <div class="progress">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <div id="quiz">
+        <div class="question" id="question"></div>
+        <div id="options"></div>
+        <button id="nextBtn">Next Question</button>
+    </div>
+
+    <div id="score" style="display:none;"></div>
+
+    <div class="footer">
+        Test Your Science Knowledge 🚀
+    </div>
+</div>
+
+<script>
+const quizData = [
+{
+question:"Which planet is known as the Red Planet?",
+options:["Earth","Mars","Venus","Jupiter"],
+answer:"Mars"
+},
+{
+question:"What gas do plants absorb from the atmosphere?",
+options:["Oxygen","Nitrogen","Carbon Dioxide","Hydrogen"],
+answer:"Carbon Dioxide"
+},
+{
+question:"What is the boiling point of water?",
+options:["50°C","100°C","150°C","200°C"],
+answer:"100°C"
+},
+{
+question:"Which organ pumps blood through the body?",
+options:["Lungs","Brain","Heart","Liver"],
+answer:"Heart"
+},
+{
+question:"What is the chemical symbol of Gold?",
+options:["Ag","Au","Gd","Go"],
+answer:"Au"
+},
+{
+question:"Which force keeps us on the ground?",
+options:["Magnetism","Friction","Gravity","Electricity"],
+answer:"Gravity"
+},
+{
+question:"How many bones are there in an adult human body?",
+options:["206","201","210","250"],
+answer:"206"
+},
+{
+question:"What is the nearest star to Earth?",
+options:["Polaris","Sun","Sirius","Alpha Centauri"],
+answer:"Sun"
+},
+{
+question:"Which vitamin is produced by sunlight?",
+options:["Vitamin A","Vitamin B","Vitamin D","Vitamin C"],
+answer:"Vitamin D"
+},
+{
+question:"What part of the cell contains DNA?",
+options:["Cell Wall","Nucleus","Membrane","Cytoplasm"],
+answer:"Nucleus"
+}
+];
+
+let currentQuestion=0;
+let score=0;
+
+const questionEl=document.getElementById("question");
+const optionsEl=document.getElementById("options");
+const nextBtn=document.getElementById("nextBtn");
+const progressBar=document.getElementById("progressBar");
+
+function loadQuestion(){
+let q=quizData[currentQuestion];
+
+questionEl.innerText=(currentQuestion+1)+". "+q.question;
+optionsEl.innerHTML="";
+
+q.options.forEach(option=>{
+const div=document.createElement("div");
+div.classList.add("option");
+div.innerText=option;
+
+div.addEventListener("click",()=>selectAnswer(div,option));
+optionsEl.appendChild(div);
+});
+
+progressBar.style.width=
+((currentQuestion)/quizData.length)*100+"%";
+}
+
+function selectAnswer(selected,answer){
+const correctAnswer=quizData[currentQuestion].answer;
+const options=document.querySelectorAll(".option");
+
+options.forEach(option=>{
+option.style.pointerEvents="none";
+
+if(option.innerText===correctAnswer){
+option.classList.add("correct");
+}
+});
+
+if(answer===correctAnswer){
+score++;
+}else{
+selected.classList.add("wrong");
+}
+}
+
+nextBtn.addEventListener("click",()=>{
+currentQuestion++;
+
+if(currentQuestion<quizData.length){
+loadQuestion();
+}else{
+showScore();
+}
+});
+
+function showScore(){
+document.getElementById("quiz").innerHTML="";
+progressBar.style.width="100%";
+
+document.getElementById("score").style.display="block";
+document.getElementById("score").innerHTML=
+`🎉 Quiz Completed!<br><br>
+Your Score: <b>${score}/${quizData.length}</b>`;
+}
+
+loadQuestion();
+</script>
+
+</body>
+</html>
